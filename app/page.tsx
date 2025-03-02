@@ -8,7 +8,7 @@ export default function Home() {
         textAlign: 'center',
       }}
     >
-      Start prompting alchemi......... to ankit.
+      Start prompting for arun.
     </div>
   );
 }
