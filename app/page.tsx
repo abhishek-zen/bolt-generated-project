@@ -13,7 +13,7 @@ const TodoItem = ({
 }: {
   todo: { id: string; text: string; completed: boolean };
   onDelete: (id: string) => void;
-  onUpdate: (id: string, completed: boolean) => void;
+  onUpdate: (id: string, completed: boolean | 'indeterminate') => void;
 }) => {
   return (
     <div key={todo.id} className="flex items-center space-x-2">
@@ -56,9 +56,9 @@ export default function Home() {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
-  const handleUpdateTodo = (id: string, completed: boolean) => {
+  const handleUpdateTodo = (id: string, completed: boolean | 'indeterminate') => {
     setTodos(
-      todos.map((todo) => (todo.id === id ? { ...todo, completed } : todo))
+      todos.map((todo) => (todo.id === id ? { ...todo, completed: completed === true } : todo))
     );
   };
 
